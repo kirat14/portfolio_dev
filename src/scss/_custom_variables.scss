@@ -1,0 +1,68 @@
+
+// Grid containers
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1200px
+);
+
+
+// Spacing
+$spacer: 1rem !default;
+$spacers: () !default;
+$spacers: map-merge(
+  (
+    0: 0,
+    1: ($spacer / 1.6),
+    2: ($spacer / 1.6 * 2),
+    3: ($spacer / 1.6 * 3),
+    4: ($spacer / 1.6 * 4),
+    5: ($spacer / 1.6 * 5)
+  ),
+  $spacers
+);
+
+
+$enable-responsive-font-sizes: true;
+
+// Components
+//
+// Define common padding and border radius sizes and more.=
+$border-width:                2px;
+
+$font-family-base: 'Poppins', sans-serif;
+$headings-font-weight: bold;
+
+$font-size-base:              1rem; // Assumes the browser default, typically `16px`
+$spacer: 1rem;
+
+$headings-margin-bottom:      $spacer * 1;
+
+$h1-font-size:                $font-size-base * 4;
+$h2-font-size:                $font-size-base * 2.5;
+
+$headings-line-height: 1;
+
+$dark: #0e0e0e;
+$primary: #df9d7a;
+$body-bg: #000;
+$body-color: #FFF;
+
+
+// Buttons + Forms
+//
+// Shared variables that are reassigned to `$input-` and `$btn-` specific variables.
+$input-btn-padding-y:         .75rem;
+$input-btn-padding-x:         2rem;
+
+
+
+// Progress bars
+
+$progress-height:                   0.3rem;
+
+
+// Navbar
+
+$navbar-nav-link-padding-x:         1rem;

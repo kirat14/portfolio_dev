@@ -1,0 +1,116 @@
+@use 'sass:color';
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+@import './custom_variables';
+@import '~bootstrap/scss/bootstrap';
+
+
+/* CSS to apply easing effect */
+html {
+  scroll-behavior: smooth;
+}
+
+
+
+/* Portfolio Cards */
+.card {
+  cursor: pointer;
+
+  img {
+    filter: grayscale(100%);
+    opacity: 0.75;
+    -webkit-transition: opacity 2s ease-out;
+    -moz-transition: opacity 2s ease-out;
+    -o-transition: opacity 2s ease-out;
+    transition: opacity 2s ease-out;
+  }
+
+  .card-img-overlay {
+    visibility: hidden;
+    background-color: color.change($primary, $alpha: 0.95)
+  }
+
+  &:hover {
+    .card-img-overlay {
+      visibility: visible;
+    }
+
+    img {
+      filter: grayscale(0%);
+      opacity: 1;
+    }
+  }
+
+
+}
+
+
+.progress {
+  margin-top: .8rem;
+  margin-bottom: 2rem;
+}
+
+/* Gallery filter */
+#portfolio {
+  .nav-item {
+    .nav-link {
+      color: $body-color;
+      position: relative;
+
+      &.active {
+        color: $primary;
+
+        &:after {
+          content: "";
+          display: block;
+          width: calc(100% - 1.5rem);
+          height: 3px;
+          background: $primary;
+          position: absolute;
+          bottom: 0;
+          left: .75rem;
+        }
+      }
+    }
+  }
+}
+
+
+/* Social media */
+.social-media {
+  li {
+    cursor: pointer;
+
+    &.linkedin {
+      &:hover {
+        path {
+          fill: #0077B5;
+        }
+      }
+    }
+
+    &.github {
+      &:hover {
+        path {
+          fill: $primary;
+        }
+      }
+    }
+  }
+}
+
+/* Contact */
+.contact {
+  a {
+    text-decoration: none;
+    color: #FFF;
+
+    &:hover {
+      color: $primary;
+
+      span {
+        border-color: $primary !important;
+      }
+    }
+  }
+}
