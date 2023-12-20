@@ -10,6 +10,9 @@ html {
   scroll-behavior: smooth;
 }
 
+.close {
+  opacity: 1;
+}
 
 
 /* Portfolio Cards */
@@ -76,6 +79,12 @@ html {
 }
 
 
+/* Jumbotron */
+div.jumbotron {
+  background-image: url(../img/bg-image.png);
+  background-size: cover;
+}
+
 /* Social media */
 .social-media {
   li {
@@ -113,4 +122,15 @@ html {
       }
     }
   }
+}
+
+// Model
+div[id*="GalleryModel"] {
+  padding-right: 0 !important;
+  background-color: #000;
+}
+
+// Footer (for actions)
+.modal-footer {
+  justify-content: center;
 }

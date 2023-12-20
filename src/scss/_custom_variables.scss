@@ -1,4 +1,3 @@
-
 // Grid containers
 $container-max-widths: (
   sm: 540px,
@@ -10,17 +9,15 @@ $container-max-widths: (
 
 // Spacing
 $spacer: 1rem !default;
-$spacers: () !default;
-$spacers: map-merge(
-  (
-    0: 0,
-    1: ($spacer / 1.6),
-    2: ($spacer / 1.6 * 2),
-    3: ($spacer / 1.6 * 3),
-    4: ($spacer / 1.6 * 4),
-    5: ($spacer / 1.6 * 5)
-  ),
-  $spacers
+$spacers: (
+  ) !default;
+$spacers: map-merge((0: 0,
+      1: ($spacer / 1.6),
+      2: ($spacer / 1.6 * 2),
+      3: ($spacer / 1.6 * 3),
+      4: ($spacer / 1.6 * 4),
+      5: ($spacer / 1.6 * 5)),
+    $spacers
 );
 
 
@@ -29,18 +26,18 @@ $enable-responsive-font-sizes: true;
 // Components
 //
 // Define common padding and border radius sizes and more.=
-$border-width:                2px;
+$border-width: 2px;
 
 $font-family-base: 'Poppins', sans-serif;
 $headings-font-weight: bold;
 
-$font-size-base:              1rem; // Assumes the browser default, typically `16px`
+$font-size-base: 1rem; // Assumes the browser default, typically `16px`
 $spacer: 1rem;
 
-$headings-margin-bottom:      $spacer * 1;
+$headings-margin-bottom: $spacer * 1;
 
-$h1-font-size:                $font-size-base * 4;
-$h2-font-size:                $font-size-base * 2.5;
+$h1-font-size: $font-size-base * 4;
+$h2-font-size: $font-size-base * 2.5;
 
 $headings-line-height: 1;
 
@@ -53,16 +50,33 @@ $body-color: #FFF;
 // Buttons + Forms
 //
 // Shared variables that are reassigned to `$input-` and `$btn-` specific variables.
-$input-btn-padding-y:         .75rem;
-$input-btn-padding-x:         2rem;
+$input-btn-padding-y: .75rem;
+$input-btn-padding-x: 2rem;
 
 
 
 // Progress bars
 
-$progress-height:                   0.3rem;
+$progress-height: 0.3rem;
 
 
 // Navbar
 
-$navbar-nav-link-padding-x:         1rem;
+$navbar-nav-link-padding-x: 1rem;
+
+
+// Model
+
+$modal-xl: 100%;
+$modal-dialog-margin-y-sm-up: 0;
+$modal-header-border-width: 0;
+$modal-content-border-radius: 0;
+$modal-dialog-margin: 0;
+$modal-content-bg: #000;
+
+// Close
+
+$close-font-size: $font-size-base * 1.8;
+$close-font-weight: 300;
+$close-color: #FFF;
+$close-text-shadow: none;
