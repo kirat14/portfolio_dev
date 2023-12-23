@@ -53,6 +53,7 @@ module.exports = function (env, argv) {
         },
         {
           test: /\.(jpg|jpeg|gif|png|svg|webp)$/,
+          include: path.resolve(__dirname, './src/img'),
           use: [
             {
               loader: "file-loader",
@@ -66,7 +67,7 @@ module.exports = function (env, argv) {
               options: {
                 mozjpeg: {
                   progressive: false,
-                  quality: 45
+                  quality: 75
                 },
                 // optipng.enabled: false will disable optipng
                 optipng: {

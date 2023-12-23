@@ -4,6 +4,15 @@ import 'bootstrap';
 import './scss/style.scss';
 
 
+// In your entry file or module
+function importAll(r) {
+	return r.keys().map(r);
+  }
+  
+//const images = importAll(require.context('./img', false, /\.(jpg|jpeg|gif|png|svg|webp)$/));
+  
+
+
 // load project dynamically from json file
 // use template.html as a loop template
 document.addEventListener('DOMContentLoaded', function () {
