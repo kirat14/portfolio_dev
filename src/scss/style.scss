@@ -3,6 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 @import './custom_variables';
 @import '~bootstrap/scss/bootstrap';
+@import '~swiper/swiper';
 
 
 /* CSS to apply easing effect */
@@ -150,3 +151,9 @@ div[id*="GalleryModel"] {
     }
   }
 }
+
+
+/* .swiper {
+  width: 600px;
+  height: 300px;
+} */
