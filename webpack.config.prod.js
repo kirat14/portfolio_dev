@@ -6,11 +6,16 @@ const MinifyPlugin = require("babel-minify-webpack-plugin");
 const path = require('path');
 
 module.exports = function (env, argv) {
+  const version = '1.0.0';
   return {
     mode: 'production',
     entry: [
       './src/app.js'
     ],
+    output: {
+      filename: `main.js?v=${version}`,
+      path: path.resolve(__dirname, 'dist'),
+    },
     optimization: {
       minimizer: [
         new OptimizeCSSAssetsPlugin()
@@ -26,8 +31,8 @@ module.exports = function (env, argv) {
         template: path.resolve('./src/index.html')
       }),
       new MiniCssExtractPlugin({
-        filename: "[name].css",
-        chunkFilename: "[id].css"
+        filename: `[name].css?v=${version}`,
+        chunkFilename: `[id].css?v=${version}`,
       }),
       new MinifyPlugin()
     ],
@@ -58,7 +63,7 @@ module.exports = function (env, argv) {
             {
               loader: "file-loader",
               options: {
-                outputPath: 'images',
+                outputPath: 'img',
                 name: "[name].[ext]",
               },
             },

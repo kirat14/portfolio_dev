@@ -52,20 +52,26 @@ document.addEventListener('DOMContentLoaded', function () {
 					// Loop through each item in the JSON data
 					jsonData.forEach(function (item) {
 						// Create a new image element
-						var image = new Image();
+						var thumbnail_image = new Image();
+						var hd_image = new Image();
 						// Attach onload event to the image
-						image.onload = function () {
+						thumbnail_image.onload = function () {
 							// Image loaded successfully
 							console.log('Image loaded:', item.thumbnail_name);
 						};
+						hd_image.onload = function () {
+							// Image loaded successfully
+							console.log('Image loaded:', item.hd_name);
+						};
 						// Set image source
-						image.src = './img/' + item.thumbnail_name;
+						thumbnail_image.src = './img/' + item.thumbnail_name;
 						// Store the image element in the array
-						imageElements.push(image);
+						imageElements.push(thumbnail_image);
+
 						// Set image source
-						image.src = './img/' + item.hd_name;
+						hd_image.src = './img/' + item.hd_name;
 						// Store the image element in the array
-						imageElements.push(image);
+						imageElements.push(hd_image);
 
 						dynamicContent = xhr.responseText;
 						dynamicContent = dynamicContent
@@ -89,7 +95,6 @@ document.addEventListener('DOMContentLoaded', function () {
 					function checkImages() {
 						if (allImagesLoaded()) {
 							// All images are loaded
-							console.log('All images loaded');
 							isotop_init();
 						} else {
 							// Not all images are loaded, check again after a delay
@@ -115,7 +120,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 function isotop_init() {
-	console.log('iso executed');
 	// external js: isotope.pkgd.js
 
 	// init Isotope

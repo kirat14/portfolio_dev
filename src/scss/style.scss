@@ -134,3 +134,19 @@ div[id*="GalleryModel"] {
 .modal-footer {
   justify-content: center;
 }
+
+.contact-section {
+  font-size: 15px;
+
+  li {
+    span {
+      padding: 10px !important;
+    }
+
+    i[class^="fa-"] {
+      width: 15px;
+      height: 15px;
+      text-align: center;
+    }
+  }
+}
