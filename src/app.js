@@ -1,15 +1,14 @@
 /* import {Person} from './Person'; */
-import $, { ready } from 'jquery';
+/* import $, { ready } from 'jquery'; */
 import 'bootstrap';
 import './scss/style.scss';
 // import Swiper JS
 import Swiper from 'swiper';
-import { Navigation, Pagination } from 'swiper/modules';
+import {Navigation} from 'swiper/modules';
 
 
 
 const swiper = new Swiper('.swiper', {
-	loop: true,
 	slidesPerView: 1,
 	spaceBetween: 16,
 	modules: [Navigation],
@@ -105,29 +104,6 @@ document.addEventListener('DOMContentLoaded', function () {
 						// Append the dynamic content to the container
 						dynamic_content_container.innerHTML += dynamicContent;
 					});
-
-					// Function to check if all images are loaded
-					function allImagesLoaded() {
-						return imageElements.every(function (image) {
-							return image.complete;
-						});
-					}
-
-					// Check if all images are loaded
-					/* function checkImages() {
-						if (allImagesLoaded()) {
-							// All images are loaded
-							isotop_init();
-						} else {
-							// Not all images are loaded, check again after a delay
-							setTimeout(checkImages, 100);
-						}
-					}
-
-					// Check images initially
-					checkImages(); */
-
-					
 				}
 			};
 			// Send the request for the JSON file

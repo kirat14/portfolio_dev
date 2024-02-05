@@ -12,11 +12,11 @@
   "license": "ISC",
   "dependencies": {
     "bootstrap": "^4.6.2",
-    "isotope-layout": "^3.0.6",
     "swiper": "^11.0.5"
   },
   "devDependencies": {
     "@babel/core": "^7.23.3",
+    "@babel/plugin-transform-runtime": "^7.23.9",
     "@babel/preset-env": "^7.23.3",
     "babel-loader": "^8.3.0",
     "babel-minify-webpack-plugin": "^0.3.1",
