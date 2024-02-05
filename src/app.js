@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	xhr.onreadystatechange = function () {
 		if (xhr.readyState === 4 && xhr.status === 200) {
 
-			// Replace placeholders with data from the current item
+			// Replace placeholders with data from the current item.
 			var dynamicContent = xhr.responseText
 
 			// Your JSON file path
