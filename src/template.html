@@ -1,40 +1,44 @@
-<div class="col mb-4 element-item wordpress webdesign">
-    <div class="card border-0">
-        <img src="./img/{{tumbnail_image}}" class="card-img-top" data-toggle="modal" data-target="#{{name}}GalleryModel">
-        <!-- ./img/thumbnail-fsileads.png -->
+<div class="swiper-slide" data-toggle="modal" data-target="#{{name}}GalleryModel">
+    <div class="bg-overlay"></div>
+    <div class="back-img">
+        <img src="./img/hd-fsileads.jpg" class="img-fluid">
+    </div>
+    <div class="front-img">
+        <img src="./img/{{tumbnail_image}}" class="img-fluid">
+    </div>
+</div>
 
-        <!-- Modal -->
-        <div class="modal fade" id="{{name}}GalleryModel" tabindex="-1" aria-labelledby="{{name}}GalleryModelLabel" aria-hidden="true">
-            <div class="modal-dialog modal-xl h-100">
-                <div class="modal-content h-100">
-                    <div class="modal-header">
-                        <!-- <h5 class="modal-title" id="galleryModelLabel">Modal title</h5> -->
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body d-flex justify-content-center flex-column mx-auto" style="max-width: 100vh;">
-                        <img src="./img/{{hd_image}}" class="img-fluid"> <!-- ./img/hd-fsileads.jpg -->
-                        <p class="mt-2">{{project_description}}</p>
-                        <!-- Transformed this design relaying only on invision to a
-                                fully responsive WordPress theme. Created a Wizard form from
-                                scratch. -->
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <a href="#" target="_blank" class="btn btn-primary">Go
-                            <svg class="" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18"
-                                fill="none" style="
-                                    width: 0.8rem;
-                                ">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-width="2"
-                                    d="M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778">
-                                </path>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
+<!-- Modal -->
+<div class="modal fade" id="{{name}}GalleryModel" tabindex="-1" aria-labelledby="{{name}}GalleryModelLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-xl h-100">
+        <div class="modal-content h-100">
+            <div class="modal-header">
+                <!-- <h5 class="modal-title" id="galleryModelLabel">Modal title</h5> -->
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body d-flex justify-content-center flex-column mx-auto" style="max-width: 100vh;">
+                <img src="./img/{{hd_image}}" class="img-fluid"> <!-- ./img/hd-fsileads.jpg -->
+                <p class="mt-2">{{project_description}}</p>
+                <!-- Transformed this design relaying only on invision to a
+                        fully responsive WordPress theme. Created a Wizard form from
+                        scratch. -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <a href="#" target="_blank" class="btn btn-primary">Go
+                    <svg class="" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" fill="none"
+                        style="
+                            width: 0.8rem;
+                        ">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778">
+                        </path>
+                    </svg>
+                </a>
             </div>
         </div>
     </div>
+</div>

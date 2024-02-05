@@ -16,7 +16,7 @@
 
 </head>
 
-<body>
+<body class="bg-dark">
 	<header class="d-flex flex-column vh-sm-100 pb-5">
 		<nav id="main-nav" class="navbar navbar-expand-md navbar-dark" aria-labelledby="main-nav-label">
 			<div class="container">
@@ -137,36 +137,87 @@
 			</section>
 
 			<section id="swiper-portfolio" class="py-5 mt-5">
+				<div class="text-center">
+					<h2 class="mb-4">My <span class="text-primary">Portfolio</span></h2>
+					<p class="mb-5 col-lg-8 offset-lg-2">
+						Explore my WordPress portfolio—a blend of frontend elegance and backend expertise. Witness
+						the
+						artistry
+						of code in creating seamless digital experiences.
+					</p>
+				</div>
+
 				<!-- Slider main container -->
 				<div class="swiper">
 					<!-- Additional required wrapper -->
 					<div class="swiper-wrapper">
 						<!-- Slides -->
 						<div class="swiper-slide">
-							<div class="card border-0">
-								<img src="./img/thumbnail-fsileads.jpg" class="card-img-top" data-toggle="modal">
+							<div class="bg-overlay"></div>
+							<div class="back-img">
+								<img src="./img/hd-fsileads.jpg" class="img-fluid">
+							</div>
+							<div class="front-img">
+								<img src="./img/thumbnail-fsileads.jpg" class="img-fluid" data-toggle="modal">
 							</div>
 						</div>
 						<div class="swiper-slide">
-							<div class="card border-0">
-								<img src="./img/thumbnail-fsileads.jpg" class="card-img-top" data-toggle="modal">
+							<div class="bg-overlay"></div>
+							<div class="back-img">
+								<img src="./img/hd-beforegoing.jpg" class="img-fluid">
+							</div>
+							<div class="front-img">
+								<img src="./img/thmbnail-beforegoing.jpg" class="img-fluid" data-toggle="modal">
 							</div>
 						</div>
 						<div class="swiper-slide">
-							<div class="card border-0">
-								<img src="./img/thumbnail-fsileads.jpg" class="card-img-top" data-toggle="modal">
+							<div class="bg-overlay"></div>
+							<div class="back-img">
+								<img src="./img/hd-fsileads.jpg" class="img-fluid">
+							</div>
+							<div class="front-img">
+								<img src="./img/thumbnail-fsileads.jpg" class="img-fluid" data-toggle="modal">
 							</div>
 						</div>
+						<div class="swiper-slide">
+							<div class="bg-overlay"></div>
+							<div class="back-img">
+								<img src="./img/hd-purenice.jpg" class="img-fluid">
+							</div>
+							<div class="front-img">
+								<img src="./img/thumbnail-purenice.jpg" class="img-fluid" data-toggle="modal">
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="bg-overlay"></div>
+							<div class="back-img">
+								<img src="./img/hd-ljs.jpg" class="img-fluid">
+							</div>
+							<div class="front-img">
+								<img src="./img/thumbnail-ljs.jpg" class="img-fluid" data-toggle="modal">
+							</div>
+						</div>
+
+						
 					</div>
 					<!-- If we need pagination -->
 					<div class="swiper-pagination"></div>
 
 					<!-- If we need navigation buttons -->
-					<div class="swiper-button-prev"></div>
-					<div class="swiper-button-next"></div>
+					<!-- <div class="swiper-button-prev"><i class="fa-solid fa-angles-left"></i></div>
+					<div class="swiper-button-next"><i class="fa-solid fa-angles-left"></i></div> -->
 
 					<!-- If we need scrollbar -->
 					<div class="swiper-scrollbar"></div>
+				</div>
+
+				<div class="swiper-nav d-flex justify-content-center mt-3">
+					<span class="swiper-button-next btn btn-outline-primary rounded-circle p-1">
+						<i class="fa-solid fa-angles-left"></i>
+					</span>
+					<span class="swiper-button-prev btn btn-outline-primary rounded-circle p-1">
+						<i class="fa-solid fa-angles-right"></i>
+					</span>
 				</div>
 			</section>
 		</div>
