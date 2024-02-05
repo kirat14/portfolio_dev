@@ -1,10 +1,10 @@
 /* import {Person} from './Person'; */
-/* import $, { ready } from 'jquery'; */
+import jQuery from 'jquery';
 import 'bootstrap';
 import './scss/style.scss';
 // import Swiper JS
 import Swiper from 'swiper';
-import {Navigation} from 'swiper/modules';
+import { Navigation } from 'swiper/modules';
 
 
 
@@ -21,6 +21,21 @@ const swiper = new Swiper('.swiper', {
 		}
 	},
 
+	on: {
+		realIndexChange: function () {
+			let project = swiper_projects[swiper.activeIndex + 1];
+			let hd_img = jQuery("#" + project.name + "-hd-img");
+			let thumbnail_img = jQuery("#" + project.name + "-thumbnail-img");
+
+			console.log(thumbnail_img.attr('src'));
+
+			if (thumbnail_img.attr('src') === undefined) {
+				hd_img.attr("src", "./img/" + project.hd_name);
+				thumbnail_img.attr("src", "./img/" + project.thumbnail_name);
+			}
+		}
+	},
+
 	// If we need pagination
 	pagination: {
 		el: '.swiper-pagination',
@@ -33,18 +48,25 @@ const swiper = new Swiper('.swiper', {
 	}
 });
 
+// Store projects imgs and descriptions
+var swiper_projects;
+var xhr;
+var dynamicContent;
+var dynamic_content_container;
 
 // load project dynamically from json file
 // use template.html as a loop template
 document.addEventListener('DOMContentLoaded', function () {
-	var dynamic_content_container = document.getElementById('dynamic-portfolio-container');
+
+
+	dynamic_content_container = document.getElementById('dynamic-portfolio-container');
 
 	// Your template file path
 	var templateFilePath = './template.html';
 
 
 	// Create a new XMLHttpRequest object for the template file
-	var xhr = new XMLHttpRequest();
+	xhr = new XMLHttpRequest();
 	xhr.open('GET', templateFilePath, true);
 
 	// Set up a callback function to handle the template file loading
@@ -52,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		if (xhr.readyState === 4 && xhr.status === 200) {
 
 			// Replace placeholders with data from the current item
-			var dynamicContent = xhr.responseText
+			dynamicContent = xhr.responseText
 
 			// Your JSON file path
 			var jsonFilePath = './data/projects.json';
@@ -65,44 +87,14 @@ document.addEventListener('DOMContentLoaded', function () {
 			jsonXhr.onreadystatechange = function () {
 				if (jsonXhr.readyState === 4 && jsonXhr.status === 200) {
 					// Parse the JSON data
-					var jsonData = JSON.parse(jsonXhr.responseText);
+					swiper_projects = JSON.parse(jsonXhr.responseText);
 
-					 // Array to store image elements
-					 var imageElements = [];
-
-					// Loop through each item in the JSON data
-					jsonData.forEach(function (item) {
-						// Create a new image element
-						var thumbnail_image = new Image();
-						var hd_image = new Image();
-						// Attach onload event to the image
-						thumbnail_image.onload = function () {
-							// Image loaded successfully
-							console.log('Image loaded:', item.thumbnail_name);
-						};
-						hd_image.onload = function () {
-							// Image loaded successfully
-							console.log('Image loaded:', item.hd_name);
-						};
-						// Set image source
-						thumbnail_image.src = './img/' + item.thumbnail_name;
-						// Store the image element in the array
-						imageElements.push(thumbnail_image);
-
-						// Set image source
-						hd_image.src = './img/' + item.hd_name;
-						// Store the image element in the array
-						imageElements.push(hd_image);
-
-						dynamicContent = xhr.responseText;
-						dynamicContent = dynamicContent
-							.replace('{{tumbnail_image}}', item.thumbnail_name)
-							.replaceAll('{{hd_image}}', item.hd_name)
-							.replace('{{project_description}}', item.project_description)
-							.replaceAll('{{name}}', item.name);
-
-						// Append the dynamic content to the container
-						dynamic_content_container.innerHTML += dynamicContent;
+					swiper_projects.forEach(function (item, index) {
+						bind_projects_data(item);
+						if (index < 2) {
+							jQuery("#" + item.name + "-hd-img").attr("src", "./img/" + item.hd_name);
+							jQuery("#" + item.name + "-thumbnail-img").attr("src", "./img/" + item.thumbnail_name);
+						}
 					});
 				}
 			};
@@ -114,3 +106,12 @@ document.addEventListener('DOMContentLoaded', function () {
 	xhr.send();
 
 });
+
+function bind_projects_data(item) {
+	dynamicContent = xhr.responseText;
+	dynamicContent = dynamicContent
+		.replaceAll('{{name}}', item.name);
+
+	// Append the dynamic content to the container
+	dynamic_content_container.innerHTML += dynamicContent;
+}

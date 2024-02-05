@@ -34,7 +34,7 @@ module.exports = function (env, argv) {
         filename: `[name].css?v=${version}`,
         chunkFilename: `[id].css?v=${version}`,
       }),
-      new MinifyPlugin()
+      //new MinifyPlugin()
     ],
     module: {
       rules: [
