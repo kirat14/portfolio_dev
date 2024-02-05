@@ -1,16 +1,38 @@
 /* import {Person} from './Person'; */
-import $ from 'jquery';
+import $, { ready } from 'jquery';
 import 'bootstrap';
 import './scss/style.scss';
+// import Swiper JS
+import Swiper from 'swiper';
+import { Navigation, Pagination } from 'swiper/modules';
 
 
-// In your entry file or module
-function importAll(r) {
-	return r.keys().map(r);
-  }
-  
-//const images = importAll(require.context('./img', false, /\.(jpg|jpeg|gif|png|svg|webp)$/));
-  
+
+const swiper = new Swiper('.swiper', {
+	loop: true,
+	slidesPerView: 1,
+	spaceBetween: 16,
+	modules: [Navigation],
+
+	// Responsive breakpoints
+	breakpoints: {
+		// when window width is >= 576px
+		576: {
+			slidesPerView: 2
+		}
+	},
+
+	// If we need pagination
+	pagination: {
+		el: '.swiper-pagination',
+	},
+
+	// Navigation arrows
+	navigation: {
+		nextEl: '.swiper-button-next',
+		prevEl: '.swiper-button-prev',
+	}
+});
 
 
 // load project dynamically from json file
@@ -76,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function () {
 						dynamicContent = xhr.responseText;
 						dynamicContent = dynamicContent
 							.replace('{{tumbnail_image}}', item.thumbnail_name)
-							.replace('{{hd_image}}', item.hd_name)
+							.replaceAll('{{hd_image}}', item.hd_name)
 							.replace('{{project_description}}', item.project_description)
 							.replaceAll('{{name}}', item.name);
 
@@ -92,7 +114,7 @@ document.addEventListener('DOMContentLoaded', function () {
 					}
 
 					// Check if all images are loaded
-					function checkImages() {
+					/* function checkImages() {
 						if (allImagesLoaded()) {
 							// All images are loaded
 							isotop_init();
@@ -103,7 +125,7 @@ document.addEventListener('DOMContentLoaded', function () {
 					}
 
 					// Check images initially
-					checkImages();
+					checkImages(); */
 
 					
 				}
@@ -116,71 +138,3 @@ document.addEventListener('DOMContentLoaded', function () {
 	xhr.send();
 
 });
-
-
-
-function isotop_init() {
-	// external js: isotope.pkgd.js
-
-	// init Isotope
-	var iso = new Isotope('.grid', {
-		itemSelector: '.element-item',
-		layoutMode: 'fitRows'
-	});
-
-	// filter functions
-	var filterFns = {
-		// show if number is greater than 50
-		numberGreaterThan50: function (itemElem) {
-			var number = itemElem.querySelector('.number').textContent;
-			return parseInt(number, 10) > 50;
-		},
-		// show if name ends with -ium
-		ium: function (itemElem) {
-			var name = itemElem.querySelector('.name').textContent;
-			return name.match(/ium$/);
-		}
-	};
-
-	// bind filter button click
-	var filtersElem = document.querySelector('.filters-button-group');
-
-	filtersElem.addEventListener('click', function (event) {
-		event.preventDefault();
-
-		if (!matchesSelector(event.target, 'a')) {
-			return;
-		}
-
-		var filterValue = event.target.getAttribute('data-filter');
-		// use matching filter function
-		filterValue = filterFns[filterValue] || filterValue;
-		iso.arrange({ filter: filterValue });
-
-	});
-
-	// change is-checked class on buttons
-	var buttonGroups = document.querySelectorAll('.filters-button-group');
-	for (var i = 0, len = buttonGroups.length; i < len; i++) {
-		var buttonGroup = buttonGroups[i];
-		radioButtonGroup(buttonGroup);
-	}
-
-	let view_all = document.getElementById('view-all');
-	view_all.addEventListener('click', function (event) {
-		event.preventDefault();
-		document.getElementById('nav-link-all').click();
-	});
-
-	function radioButtonGroup(buttonGroup) {
-		buttonGroup.addEventListener('click', function (event) {
-			// only work with buttons
-			if (!matchesSelector(event.target, 'a')) {
-				return;
-			}
-			buttonGroup.querySelector('.active').classList.remove('active');
-			event.target.classList.add('active');
-		});
-	}
-
-}

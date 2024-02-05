@@ -12,7 +12,8 @@
   "license": "ISC",
   "dependencies": {
     "bootstrap": "^4.6.2",
-    "isotope-layout": "^3.0.6"
+    "isotope-layout": "^3.0.6",
+    "swiper": "^11.0.5"
   },
   "devDependencies": {
     "@babel/core": "^7.23.3",
