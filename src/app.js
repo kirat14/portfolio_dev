@@ -23,11 +23,12 @@ const swiper = new Swiper('.swiper', {
 
 	on: {
 		realIndexChange: function () {
-			let project = swiper_projects[swiper.activeIndex + 1];
+			let targetIndex = swiper.activeIndex > swiper.previousIndex ? swiper.activeIndex + 1 : swiper.previousIndex - 1;
+			let project = swiper_projects[targetIndex];
 			let hd_img = jQuery("#" + project.name + "-hd-img");
 			let thumbnail_img = jQuery("#" + project.name + "-thumbnail-img");
 
-			console.log(thumbnail_img.attr('src'));
+			bind_swiper_modal(project, targetIndex);
 
 			if (thumbnail_img.attr('src') === undefined) {
 				hd_img.attr("src", "./img/" + project.hd_name);
@@ -90,8 +91,9 @@ document.addEventListener('DOMContentLoaded', function () {
 					swiper_projects = JSON.parse(jsonXhr.responseText);
 
 					swiper_projects.forEach(function (item, index) {
-						bind_projects_data(item);
+						bind_projects_data(item, index);
 						if (index < 2) {
+							bind_swiper_modal(item, index);
 							jQuery("#" + item.name + "-hd-img").attr("src", "./img/" + item.hd_name);
 							jQuery("#" + item.name + "-thumbnail-img").attr("src", "./img/" + item.thumbnail_name);
 						}
@@ -107,11 +109,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 
-function bind_projects_data(item) {
+function bind_projects_data(item, index) {
+	let choosen_modal = index % 2 == 0 ? 'slide-model-one' : 'slide-model-two';
 	dynamicContent = xhr.responseText;
 	dynamicContent = dynamicContent
+		.replace('{{modalName}}', choosen_modal)
 		.replaceAll('{{name}}', item.name);
 
 	// Append the dynamic content to the container
 	dynamic_content_container.innerHTML += dynamicContent;
+}
+
+function bind_swiper_modal(project, index){
+	let choosen_modal_img = index % 2 == 0 ? '#hd-img-one' : '#hd-img-two';
+	jQuery(choosen_modal_img).attr('src', "./img/" + project.hd_name);
 }
