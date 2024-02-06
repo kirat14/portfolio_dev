@@ -16,67 +16,12 @@ html {
 }
 
 
-/* Portfolio Cards */
-.card {
-  cursor: pointer;
 
-  img {
-    filter: grayscale(100%);
-    opacity: 0.75;
-    -webkit-transition: opacity 2s ease-out;
-    -moz-transition: opacity 2s ease-out;
-    -o-transition: opacity 2s ease-out;
-    transition: opacity 2s ease-out;
-  }
-
-  .card-img-overlay {
-    visibility: hidden;
-    background-color: color.change($primary, $alpha: 0.95)
-  }
-
-  &:hover {
-    .card-img-overlay {
-      visibility: visible;
-    }
-
-    img {
-      filter: grayscale(0%);
-      opacity: 1;
-    }
-  }
-
-
-}
 
 
 .progress {
   margin-top: .8rem;
   margin-bottom: 2rem;
-}
-
-/* Gallery filter */
-#portfolio {
-  .nav-item {
-    .nav-link {
-      color: $body-color;
-      position: relative;
-
-      &.active {
-        color: $primary;
-
-        &:after {
-          content: "";
-          display: block;
-          width: calc(100% - 1.5rem);
-          height: 3px;
-          background: $primary;
-          position: absolute;
-          bottom: 0;
-          left: .75rem;
-        }
-      }
-    }
-  }
 }
 
 
@@ -175,6 +120,7 @@ div[id*="GalleryModel"] {
 }
 
 .bg-overlay {
+  cursor: pointer;
   position: absolute;
   top: 0;
   left: 0;
@@ -191,6 +137,7 @@ div[id*="GalleryModel"] {
 }
 
 .front-img {
+  cursor: pointer;
   position: relative;
   z-index: 2;
 }
